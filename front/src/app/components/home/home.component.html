@@ -1,0 +1,28 @@
+<p>home works!</p>
+<div class="container">
+    <div class="contact-box">
+        <div class="left"></div>
+        <div class="right">
+            <h2>Create game</h2>
+            <input type="text" class="field" placeholder="Your Name">
+            <input type="text" class="field" placeholder="Your Email">
+            <input type="text" class="field" placeholder="Phone">
+            <input type="text" class="field" placeholder="Phone">
+            <mat-form-field appearance="fill">
+                <mat-label>Select an option</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option>None</mat-option>
+                  <mat-option value="option1">Option 1</mat-option>
+                  <mat-option value="option2">Option 2</mat-option>
+                  <mat-option value="option3">Option 3</mat-option>
+                </mat-select>
+            </mat-form-field>
+          <!--   <textarea placeholder="Message" class="field"></textarea> -->
+            <button class="btn">Submit</button>
+        </div>
+    </div>
+</div>
+<h1>your user name:</h1>
+<br/>
+<input #userInput/>
+<button (click)="createUser(userInput)">submit</button>

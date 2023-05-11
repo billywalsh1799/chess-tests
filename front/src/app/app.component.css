@@ -1,0 +1,52 @@
+.prog{
+    /* background-color: darkgoldenrod; */
+    margin: 100px;
+    height: 200px;
+    width: 200px;
+    padding: 50px;
+}
+
+.app-progress-bar{
+    width: 500px;
+    height: 7px;
+    /* background-color: brown; */
+    /* height: 20px; */
+    margin: 50px;
+}
+
+.example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 20px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+  
+  .example-card {
+    margin-bottom: 10px;
+    width:max-content;
+    height: 200px;
+    text-align: center;
+  }
+
+  .join-link{
+    border: solid;
+    padding: 5px;
+  }
+
+  .app-con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  
+
