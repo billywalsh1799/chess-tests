@@ -1,4 +1,22 @@
 .game-ui{
-    background-color: aquamarine;
+    /* background-color: rgb(105, 105, 105); */
+    height:850px;
+    width: 1700px;
+    overflow: hidden;
+    position: relative;
+    left:-40px;
+    top:30px;
+    
+    /* height: 800px;
+    width: 800px; */
+   
+}
+
+.welcome{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* overflow: hidden; */
+
 }

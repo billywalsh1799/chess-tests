@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChatService } from 'src/app/services/chatservice/chat.service';
-import { UserService } from 'src/app/services/userservice/user.service';
+import { GameService } from 'src/app/services/gameservice/game.service';
 import { v4 } from 'uuid'
 
 @Component({
@@ -11,26 +11,30 @@ import { v4 } from 'uuid'
 })
 export class HomeComponent {
 
-  selected = 'option2';
-  constructor(private router:Router,private userservice:UserService,private chatservice:ChatService){}
+  
+  user:string=""
+  side:string=""
+  time:string=""
+
+  constructor(private router:Router,private gameservice:GameService,private chatservice:ChatService){}
 
   
 
-  createUser(userInput:HTMLInputElement){
+  createGame():void{
 
     //get user input
-    let user=userInput.value
+    //check form fields are all filled
 
     //generate new game id
     let gameId=v4()
     console.log(gameId,"gamecode")
-
-    //send gameinfo to user service
-    this.userservice.setUserName(user)
+    
+    //send gameinfo to game service
+    this.gameservice.setGameInfo({user:this.user,side:this.side,time:this.time})
     
 
     //create new room in server
-    this.chatservice.createGame({room:gameId,client:user})
+    this.chatservice.createGame({room:gameId,client:this.user})
 
     this.router.navigate(['game/'+gameId])
     

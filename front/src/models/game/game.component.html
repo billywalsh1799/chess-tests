@@ -1,5 +1,6 @@
-<p>game works!</p>
-<div *ngIf="user && !ready">
+<div class="welcome">
+    <p>game works!</p>
+<!-- <div *ngIf="user && !ready">
     <h1 >hello {{user}} send link below to your friend
     </h1>
     <br/>
@@ -8,19 +9,22 @@
 </div>
 
 <h2 *ngIf="!ready && user">waiting for players to join game ...</h2>
+ -->
 
-
-<h1 *ngIf="ready">current player: {{user}} opponent {{otherUser}}</h1>
-
+<!-- <h1 *ngIf="ready">current player: {{user}} opponent {{otherUser}}</h1> -->
 <div *ngIf="!user">
     <p>enter user</p>   
     <input #userInput/>
-    <button (click)="createUser(userInput)">submit</button>
+    <button (click)="joinGame()">submit</button>
 </div>
 
-<h1>{{ready}}</h1>
 
-<div *ngIf="ready">
+<!-- <div *ngIf="ready" class="game-ui">
+    <board></board>
+    <app-chat  [sender]="user" [receiver]="otherUser" [roomCode]="gameId"></app-chat>
+</div>    -->
+<div *ngIf="ready" class="game-ui">
     <board></board>
     <app-chat  [sender]="user" [receiver]="otherUser" [roomCode]="gameId"></app-chat>
 </div>   
+</div>

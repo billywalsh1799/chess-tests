@@ -4,25 +4,35 @@
         <div class="left"></div>
         <div class="right">
             <h2>Create game</h2>
-            <input type="text" class="field" placeholder="Your Name">
-            <input type="text" class="field" placeholder="Your Email">
-            <input type="text" class="field" placeholder="Phone">
-            <input type="text" class="field" placeholder="Phone">
-            <mat-form-field appearance="fill">
-                <mat-label>Select an option</mat-label>
-                <mat-select [(value)]="selected">
+            <!-- <input type="text" class="field" placeholder="Your Name"> -->
+            <mat-form-field class="game-info">
+              <mat-label >Your Username</mat-label>
+              <input matInput [(ngModel)]="user">
+            </mat-form-field>
+            <mat-form-field class="game-info">
+                <mat-label>Select side</mat-label>
+                <mat-select [(value)]="side">
                   <mat-option>None</mat-option>
-                  <mat-option value="option1">Option 1</mat-option>
-                  <mat-option value="option2">Option 2</mat-option>
-                  <mat-option value="option3">Option 3</mat-option>
+                  <mat-option value="white">White</mat-option>
+                  <mat-option value="black">Black</mat-option>
+                  <mat-option value="random">Random Side</mat-option>
                 </mat-select>
             </mat-form-field>
-          <!--   <textarea placeholder="Message" class="field"></textarea> -->
-            <button class="btn">Submit</button>
+            <mat-form-field class="game-info">
+                <mat-label>Select Time</mat-label>
+                <mat-select [(value)]="time">
+                  <mat-option>None</mat-option>
+                  <mat-option value="rapid">Rapid</mat-option>
+                  <mat-option value="blitz">Blitz</mat-option>
+                  <mat-option value="bullet">Bullet</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button class="btn" (click)="createGame()">Submit</button>
         </div>
     </div>
 </div>
 <h1>your user name:</h1>
 <br/>
-<input #userInput/>
-<button (click)="createUser(userInput)">submit</button>
+<!-- <input #userInput/>
+<button (click)="createUser(userInput)">submit</button> -->
+<h1>user: {{user}} side: {{side}} time: {{time}}</h1>

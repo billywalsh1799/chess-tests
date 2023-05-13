@@ -10,7 +10,8 @@
 
 
 .contact-box{
-	max-width: 850px;
+	max-width: 1000px;
+	height: 500px;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	justify-content: center;
@@ -34,7 +35,7 @@
 h2{
 	position: relative;
 	padding: 0 0 10px;
-	margin-bottom: 10px;
+	margin-bottom: 40px;
 }
 
 h2:after{
@@ -60,13 +61,17 @@ h2:after{
 	transition: .3s;
 }
 
+.game-info{
+	width: 350px;
+	font-size: 1.1rem;
+	
+}
+
 .field:hover{
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
-textarea{
-	min-height: 150px;
-}
+
 
 .btn{
 	width: 100%;
@@ -89,11 +94,12 @@ textarea{
     background-color: #fff;
 }
 
-@media screen and (max-width: 880px){
+/* @media screen and (max-width: 880px){
 	.contact-box{
 		grid-template-columns: 1fr;
 	}
 	.left{
 		height: 200px;
 	}
-}
+} */
+

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ChatService } from 'src/app/services/chatservice/chat.service';
-import { UserService } from 'src/app/services/userservice/user.service';
+import { GameService } from 'src/app/services/gameservice/game.service';
+
 
 
 @Component({
@@ -14,18 +15,18 @@ export class GameComponent implements OnInit {
   user:string=""
   otherUser:string=""
   gameId:any=""
-
+  gameSettings={}
   ready:any=false
 
   /* messages:any =[] */
  
   //angular material spinner waiting for other players
-  constructor(private usernameservice:UserService,private chatservice:ChatService,private route:ActivatedRoute){
-    
-    this.user=this.usernameservice.getUserName()
+  constructor(private gameservice:GameService,private chatservice:ChatService,private route:ActivatedRoute){
+    let {user,side,time}=gameservice.getGameInfo()
+    this.user=user
+    this.gameSettings={side,time}
     this.gameId=this.route.snapshot.paramMap.get('gameId')
 
-   
   }
 
   ngOnInit(): void {
@@ -48,8 +49,7 @@ export class GameComponent implements OnInit {
 
   }
 
-  createUser(user:HTMLInputElement):void{
-    this.user=user.value
+  joinGame():void{
     this.chatservice.joinGame({room:this.gameId,client:this.user})
 
   }
