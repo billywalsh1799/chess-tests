@@ -8,7 +8,7 @@ import { Component ,Input} from '@angular/core';
 export class WaitingComponent {
 
   @Input() gameId:string=""
-  
+  @Input() player:string=""
 
   selectText(inputField:HTMLInputElement){
     inputField.select()
