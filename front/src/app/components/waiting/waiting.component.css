@@ -1,0 +1,76 @@
+.example-card {
+    width: 650px;
+    height: 400px;
+    /* background-color: #8db2be; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    text-align: center;
+    
+  }
+
+  .app-progress-bar{
+    width: 400px;
+    height: 7px;
+    position: relative;
+    top: 70px;
+    
+    
+}
+
+.card-header{
+    font-size: 20px;
+    position: relative;
+    top: -80px;
+
+}
+
+.card-content p{
+    position: relative;
+    top: 50px;
+}
+
+/* copy link css */
+
+.copy-link {
+    --height: 50px;
+  
+    display: flex;
+    max-width: 400px;
+    position: relative;
+    top: -20px;
+  }
+  
+  .copy-link-input {
+    flex-grow: 1;
+    padding: 0 8px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-right: none;
+    outline: none;
+  }
+  
+  .copy-link-input:hover {
+    background: #eeeeee;
+  }
+  
+  .copy-link-button {
+    flex-shrink: 0;
+    width: var(--height);
+    height: var(--height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dddddd;
+    color: #333333;
+    outline: none;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+  }
+  
+  .copy-link-button:hover {
+    background: #cccccc;
+  }
+  

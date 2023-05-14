@@ -18,6 +18,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import { GameService } from './services/gameservice/game.service';
+import { WaitingComponent } from './components/waiting/waiting.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { GameService } from './services/gameservice/game.service';
     BoardComponent,
     GameComponent,
     ChatComponent,
-    HomeComponent
+    HomeComponent,
+    WaitingComponent
   ],
   imports: [
     BrowserModule,

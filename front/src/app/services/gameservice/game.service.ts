@@ -5,16 +5,34 @@ import { Injectable } from '@angular/core';
 })
 export class GameService {
 
-  gameInfo:any
+  user:string=""
+  side:string=""
+  time:string=""
 
   constructor() { }
 
-  getGameInfo(){
-    return this.gameInfo
+  getUser():string{
+    return this.user
   }
 
-  setGameInfo(gameinfo:any){
-    this.gameInfo=gameinfo
-    
+  setUser(user:string):void{
+    this.user=user
   }
+
+  getSide():string{
+    return this.side
+  }
+
+  setSide(side:string):void{
+    this.side=side
+  }
+
+  getTime():string{
+    return this.time
+  }
+
+  setTime(time:string){
+    this.time=time
+  }
+
 }

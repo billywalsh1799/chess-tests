@@ -27,10 +27,14 @@ export class HomeComponent {
 
     //generate new game id
     let gameId=v4()
-    console.log(gameId,"gamecode")
+    //console.log(gameId,"gamecode")
     
     //send gameinfo to game service
-    this.gameservice.setGameInfo({user:this.user,side:this.side,time:this.time})
+
+    this.gameservice.setUser(this.user)
+    this.gameservice.setSide(this.side)
+    this.gameservice.setTime(this.time)
+
     
 
     //create new room in server
