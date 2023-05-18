@@ -11,6 +11,10 @@
     
   }
 
+  .black-view{
+    transform: rotate(180deg)
+  }
+
   .pieceLogo{
     width: 70px;
     height: 70px;

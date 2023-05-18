@@ -20,7 +20,7 @@
     </div>
 
     <div *ngIf="ready" class="game-ui">
-        <board></board>
+        <board [room]="gameId" [side]="side"></board>
         <app-chat  [sender]="player" [receiver]="opponent" [roomCode]="gameId"></app-chat>
     </div>   
 </div>

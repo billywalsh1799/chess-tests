@@ -23,7 +23,7 @@ export class HomeComponent {
   createGame():void{
 
     //get user input
-    //check form fields are all filled
+    //check form fields are all filled!!
 
     //generate new game id
     let gameId=v4()
@@ -32,13 +32,22 @@ export class HomeComponent {
     //send gameinfo to game service
 
     this.gameservice.setUser(this.user)
-    this.gameservice.setSide(this.side)
     this.gameservice.setTime(this.time)
 
+    if(this.side==="random"){
+      let randInt=Math.floor(Math.random() * (20- 1 + 1) +1)
+      this.side=randInt>10 ? "white" : "black"
+    }
+
+    
+    this.gameservice.setSide(this.side)
+    
     
 
+    
+    let gameSettings={side:this.side,time:this.time}
     //create new room in server
-    this.chatservice.createGame({room:gameId,client:this.user})
+    this.chatservice.createGame({room:gameId,client:this.user,gameSettings:gameSettings})
 
     this.router.navigate(['game/'+gameId])
     

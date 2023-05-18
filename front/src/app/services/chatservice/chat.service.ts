@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
+import { Square } from 'src/models/square/Square';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class ChatService {
 
   
 
-  createGame(gameInfo:{room:string,client:string}){
+  createGame(gameInfo:{room:string,client:string,gameSettings:any}){
     this.socket.emit("create game",gameInfo)
   }
 
@@ -35,22 +36,27 @@ export class ChatService {
     this.socket.emit("join game",gameInfo)
   }
 
-  /* onJoinGame(){
-    return new Observable<any>(observer => {
-      this.socket.on('join game', (otheruser) => {
-        observer.next(otheruser);
-      });
-    });
+  onStartGame(): Observable<{start:boolean,opponent:string,gameSettings:any}> {
 
-  } */
-
-  onStartGame(): Observable<{start:boolean,opponent:string}> {
-
-    return new Observable<{start:boolean,opponent:string}>(observer => {
+    return new Observable<{start:boolean,opponent:string,gameSettings:any}>(observer => {
       this.socket.on('start game', (ready) => {
         observer.next(ready);
       });
     });
+
+  }
+
+  makeMove(move:any,room:any):void{
+    this.socket.emit("move made",move,room)
+  }
+
+  onMoveMade(): Observable<any>{
+    return new Observable<any>(observer => {
+      this.socket.on('move made', (move) => {
+        observer.next(move);
+      });
+    });
+
 
   }
 

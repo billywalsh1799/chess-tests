@@ -63,6 +63,8 @@ function cleanUp(possiblemoves:number[][],board:Square[][]):void{
       else
         board[a][b].possibleMove=false
   }
-  }
+}
+
+
 
 export {createBoard,showPossibleMoves,cleanUp}

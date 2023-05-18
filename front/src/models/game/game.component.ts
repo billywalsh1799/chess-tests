@@ -41,9 +41,14 @@ export class GameComponent implements OnInit {
 
     this.chatservice.onStartGame().subscribe((ready)=>{
       console.log("yoooo",ready)
-      let {start,opponent}=ready
+      let {start,opponent,gameSettings}=ready
       this.ready=start
       this.opponent=opponent
+      if(!this.isCreator){
+        let {side,time}=gameSettings
+        this.side=side==="white"? "black" : "white"
+        this.time=time
+      }
     })
     
     console.log(this.gameId,"game id")

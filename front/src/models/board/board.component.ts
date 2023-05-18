@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit,Input} from '@angular/core';
 import { Square } from '../square/Square';
 import { BoardService } from 'src/app/services/boardservice/board.service';
+import { ChatService } from 'src/app/services/chatservice/chat.service';
 
 
 
@@ -10,8 +11,19 @@ import { BoardService } from 'src/app/services/boardservice/board.service';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })
-export class BoardComponent {
+export class BoardComponent implements OnInit {
   board: Square[][] = [];
+  @Input() room:string=""
+  @Input() side:string=""
+
+  ngOnInit(): void {
+    this.boardservice.initGame(this.side)
+    this.chatservice.onMoveMade().subscribe((move)=>{
+      console.log("move made",move)
+      this.boardservice.receiveMove(move)
+    })
+    
+  }
   
   takeBack():void{
     this.boardservice.takeBack()
@@ -22,12 +34,21 @@ export class BoardComponent {
  
 
   makeMove(i:number,j:number):void{
-    this.boardservice.clickPiece(i,j)
+   
+      let moveInfo=this.boardservice.clickPiece(i,j)
+      if(Object.keys(moveInfo).length){
+        console.log(moveInfo,"davabdab")
+        this.chatservice.makeMove(moveInfo,this.room)
+      }
+    
+
+   
+    /* this.chatservice.makeMove({from:}) */
   }
 
   
 
-  constructor(private boardservice:BoardService) {
+  constructor(private boardservice:BoardService,private chatservice:ChatService) {
     this.board=this.boardservice.getBoard()
   }
 

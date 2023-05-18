@@ -1,12 +1,13 @@
-<table class="board">
+<h1>side: {{side}}</h1>
+<table [ngClass]="{'board':true}">
     <tr>
       <td class="empty-cell"></td>
       
       <td class="empty-cell"></td>
     </tr>
     <tr *ngFor="let row of [8, 7, 6, 5, 4, 3, 2, 1]; let i = index">
-      <td class="row-label">{{ row }}</td>
-      <td class="cell" *ngFor="let col of ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; let j = index" [ngClass]="{ 'white-cell': (i+j) % 2 == 0, 'black-cell': (i+j) % 2 == 1 }" (click)="makeMove(i,j)">
+      <td [ngClass]="{'row-label':true,'black-view':side==='black'}">{{ row }}</td>
+      <td class="cell" *ngFor="let col of ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; let j = index" [ngClass]="{ 'white-cell': (i+j) % 2 == 0, 'black-cell': (i+j) % 2 == 1,'back-view':side==='black' }" (click)="makeMove(i,j)">
         <div *ngIf="board[i][j].piece===false && board[i][j].possibleMove">
           
           <img class="possible-move"  src="https://assets.untappd.com/site/beer_logos_hd/beer-4817317_108bb_hd.jpeg"/>
@@ -14,7 +15,7 @@
         </div>
         
           <div [ngClass]="{'capture-cell':board[i][j].inCapture,'selected-cell':board[i][j].isSelected}">
-            <img *ngIf="board[i][j].piece" class="pieceLogo" [src]="board[i][j].piece.logo"/>
+            <img *ngIf="board[i][j].piece" [ngClass]="{'pieceLogo':true,'black-view':side==='black'}" [src]="board[i][j].piece.logo"/>
           </div>
        
         
@@ -23,7 +24,7 @@
     </tr>
     <tr>
       <td class="empty-cell" ></td>
-      <td class="col-label" *ngFor="let col of ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']" >{{ col }}</td>
+      <td [ngClass]="{'col-label':true,'black-view':side==='black'}" *ngFor="let col of ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']" >{{ col }}</td>
       <td class="empty-cell"></td>
     </tr>
     <!-- <button (click)="takeBack()">take back</button> -->

@@ -14,9 +14,9 @@ io.on('connection', (socket) => {
 
     //creating a game
     socket.on("create game",(gameInfo)=>{
-        let {room,client}=gameInfo
+        let {room,client,gameSettings}=gameInfo
         if (!(room in rooms)) {
-            rooms[room] = [client];
+            rooms[room] = {players:[client],gameSettings:gameSettings};
             socket.join(room);
         }
 
@@ -29,12 +29,12 @@ io.on('connection', (socket) => {
     socket.on("join game",(gameInfo)=>{
         let {room,client}=gameInfo
         if (room in rooms) {
-            if (rooms[room].length < 2){
-                rooms[room].push(client);
+            if (rooms[room]["players"].length < 2){
+                rooms[room]["players"].push(client);
                 socket.join(room);
                 //io.to(room).emit('start game',{start:true,opponent:client});
 
-                socket.emit("start game",{start:true,opponent:rooms[room][0]})
+                socket.emit("start game",{start:true,opponent:rooms[room]["players"][0],gameSettings:rooms[room]["gameSettings"]})
                 socket.to(room).emit("start game",{start:true,opponent:client})
 
                 console.log(rooms)
@@ -70,6 +70,10 @@ io.on('connection', (socket) => {
         //socket.to(roomId).emit('new-message', msg)
     });
 
+    socket.on("move made",(move,room)=>{
+        socket.to(room).emit('move made',move);
+    })
+
 
 
     // Handle disconnections
@@ -77,7 +81,7 @@ io.on('connection', (socket) => {
         console.log('A user has disconnected.');
         //git
         //send a message user has left the game
-        //when user disconnects remove from room
+        //when user disconnects remove client from room
 
     });
 
