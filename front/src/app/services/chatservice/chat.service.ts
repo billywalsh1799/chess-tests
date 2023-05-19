@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, observeOn } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 import { Square } from 'src/models/square/Square';
 
@@ -46,6 +46,15 @@ export class ChatService {
 
   }
 
+  onRoomException(): Observable<{exception:string}>{
+    return new Observable<{exception:string}>(observer => {
+      this.socket.on('room exception', (exception) => {
+        observer.next(exception);
+      });
+    });
+
+  }
+
   makeMove(move:any,room:any):void{
     this.socket.emit("move made",move,room)
   }
@@ -56,8 +65,6 @@ export class ChatService {
         observer.next(move);
       });
     });
-
-
   }
 
 

@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import { GameService } from './services/gameservice/game.service';
 import { WaitingComponent } from './components/waiting/waiting.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { WaitingComponent } from './components/waiting/waiting.component';
     GameComponent,
     ChatComponent,
     HomeComponent,
-    WaitingComponent
+    WaitingComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { WaitingComponent } from './components/waiting/waiting.component';
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [BoardService,ChatService,GameService],
   bootstrap: [AppComponent]

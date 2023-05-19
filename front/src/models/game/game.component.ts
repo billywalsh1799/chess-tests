@@ -40,7 +40,6 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
 
     this.chatservice.onStartGame().subscribe((ready)=>{
-      console.log("yoooo",ready)
       let {start,opponent,gameSettings}=ready
       this.ready=start
       this.opponent=opponent
@@ -49,15 +48,20 @@ export class GameComponent implements OnInit {
         this.side=side==="white"? "black" : "white"
         this.time=time
       }
-    })
     
-    console.log(this.gameId,"game id")
+    })
+
+    this.chatservice.onRoomException().subscribe((exception=>{
+      alert(exception["exception"])
+    }))
   }
+
+  
 
   joinGame():void{
     if(this.player)
       this.chatservice.joinGame({room:this.gameId,client:this.player})
-    //alert for form fields if not filled
+    //alert for form fields if not filledkkk
 
   }
 

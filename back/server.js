@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
     socket.on("join game",(gameInfo)=>{
         let {room,client}=gameInfo
         if (room in rooms) {
-            if (rooms[room]["players"].length < 2){
+            if (rooms[room]["players"].length < 2 && client!==rooms[room]["players"][0]){
                 rooms[room]["players"].push(client);
                 socket.join(room);
                 //io.to(room).emit('start game',{start:true,opponent:client});
@@ -44,7 +44,14 @@ io.on('connection', (socket) => {
                 //use socketbrodcat and socketemit to send opponents name
             }
 
+            else if (rooms[room]["players"].length < 2 && client===rooms[room]["players"][0]){
+                socket.emit("room exception",{exception:"user name already used"})
+            }
+
+
+
             else{
+                socket.emit("room exception",{exception:"room is full"})
                 console.log("room is full")
                 //send back to client room is full
             }
@@ -54,8 +61,12 @@ io.on('connection', (socket) => {
 
 
 
-        else
+        else{
+            socket.emit("room exception",{exception:"no such room exists"})
             console.log("room not found")
+
+        }
+            
             //else send back to client room does not exist 
 
         
