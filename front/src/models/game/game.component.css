@@ -75,6 +75,12 @@
 
 .form__message--error {
     color: var(--color-error);
+    
+}
+
+.form__input-error-message{
+    font-size: 30px;
+    text-align: center;
 }
 
 .form__input-group {

@@ -21,7 +21,8 @@ import { GameService } from './services/gameservice/game.service';
 import { WaitingComponent } from './components/waiting/waiting.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
-import {MatButtonModule} from '@angular/material/button'; 
+import {MatButtonModule} from '@angular/material/button';
+import { TimerComponent } from './components/timer/timer.component'; 
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MatButtonModule} from '@angular/material/button';
     ChatComponent,
     HomeComponent,
     WaitingComponent,
-    DialogComponent
+    DialogComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,

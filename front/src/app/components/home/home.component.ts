@@ -32,7 +32,21 @@ export class HomeComponent {
     //send gameinfo to game service
 
     this.gameservice.setUser(this.user)
-    this.gameservice.setTime(this.time)
+    switch(this.time){
+      case "rapid":
+        this.gameservice.setTime(10)
+        break
+      case "blitz":
+        this.gameservice.setTime(3)
+        break
+      case "bullet":
+        this.gameservice.setTime(1)
+        break
+      default:
+        //break
+        break
+
+    }
 
     if(this.side==="random"){
       let randInt=Math.floor(Math.random() * (20- 1 + 1) +1)
@@ -45,7 +59,7 @@ export class HomeComponent {
     
 
     
-    let gameSettings={side:this.side,time:this.time}
+    let gameSettings={side:this.side,time:this.gameservice.getTime()}
     //create new room in server
     this.chatservice.createGame({room:gameId,client:this.user,gameSettings:gameSettings})
 

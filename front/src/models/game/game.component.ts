@@ -16,8 +16,9 @@ export class GameComponent implements OnInit {
   opponent:string=""
   gameId:any=""
   side:string=""
-  time:string=""
+  time:number=0
   isCreator:boolean=false
+  roomException:string=""
 
   //add attribute is creator if usergameservice is empty string
   //rename user player other user opponent
@@ -52,7 +53,8 @@ export class GameComponent implements OnInit {
     })
 
     this.chatservice.onRoomException().subscribe((exception=>{
-      alert(exception["exception"])
+      /* alert(exception["exception"]) */
+      this.roomException=exception["exception"]
     }))
   }
 

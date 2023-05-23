@@ -7,7 +7,7 @@ export class GameService {
 
   user:string=""
   side:string=""
-  time:string=""
+  time:number=0
 
   constructor() { }
 
@@ -27,11 +27,11 @@ export class GameService {
     this.side=side
   }
 
-  getTime():string{
+  getTime():number{
     return this.time
   }
 
-  setTime(time:string){
+  setTime(time:number){
     this.time=time
   }
 

@@ -29,10 +29,12 @@ export class ChatComponent implements OnInit {
 
   
   sendMessage(msg:HTMLInputElement):void{
-    let message={sender:this.sender,content:msg.value,time:moment().format('h:mm a')}
-    this.messages.push(message)
-    msg.value=""
-    this.chatservice.sendMessage(message,this.roomCode)
+    if(msg.value){
+      let message={sender:this.sender,content:msg.value,time:moment().format('h:mm a')}
+      this.messages.push(message)
+      msg.value=""
+      this.chatservice.sendMessage(message,this.roomCode)
+    }
   }
 
   handleKeyUp(e:any,msg:HTMLInputElement){
