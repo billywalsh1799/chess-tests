@@ -13,7 +13,12 @@ export class AppComponent {
 
   constructor(private dialog: MatDialog) {}
   openDialog(): void {
-    let dialogRef=this.dialog.open(DialogComponent,{data:{name:"hhhh",age:10}})
-
+    let dialogRef=this.dialog.open(DialogComponent,{data:{opponent:"white",type:"draw"}})
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      alert(result)
+    });
   }
+
+  
 }

@@ -21,6 +21,7 @@ import { GameService } from './services/gameservice/game.service';
 import { WaitingComponent } from './components/waiting/waiting.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
+import {MatButtonModule} from '@angular/material/button'; 
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     BrowserAnimationsModule,
     MatInputModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [BoardService,ChatService,GameService],
   bootstrap: [AppComponent]

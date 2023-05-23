@@ -7,10 +7,15 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent {
-  constructor(public dialogRef:MatDialogRef<DialogComponent>,@Inject(MAT_DIALOG_DATA) public data:any){}
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  type:string="" //draw offer take back proposal win draw 
+  constructor(public dialogRef:MatDialogRef<DialogComponent>,@Inject(MAT_DIALOG_DATA) public data:any){
+    this.type=data.type
+  }
+
+  
+  onNoClick(choice :string): void {
+    this.dialogRef.close(choice);
   }
 
 }
