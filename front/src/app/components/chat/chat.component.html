@@ -19,10 +19,12 @@
         <ul id="users">
           <li>{{sender}}</li>
           <li>{{receiver}}</li>
-          <!-- <a href="index.html" class="btn">Resign</a>
-          <a href="index.html" class="btn">Offer Draw</a>
-          <a href="index.html" class="btn">Propose Take Back</a> options -->
         </ul>
+        <div class="in-game-options">
+          <button class="btn" (click)="openDialog('resign')">Resign</button>
+          <button class="btn" (click)="openDialog('draw')">Offer Draw</button>
+          <button class="btn" (click)="openDialog('take back')">Take Back</button>
+        </div>
         <!-- <button>take back</button> -->
       </div>
     </main>

@@ -1,15 +1,23 @@
-<div class="dialog-box">
+<div *ngIf="data.type!=='resign'" class="dialog-box">
     <h1 mat-dialog-title>Attention !</h1>
     <div mat-dialog-content>
-    <p>{{data.opponent}} has offered a draw</p>
+    <p *ngIf="data.type==='draw'">{{data.opponent}} has offered a draw</p>
+    <p *ngIf="data.type==='take back'">{{data.opponent}} proposed a take back</p>
     </div>
     <div mat-dialog-actions class="dialog-actions">
     <button mat-raised-button color="primary" (click)="onNoClick('accept')">Accept</button>
-    <!--   <button mat-button [mat-dialog-close]="animal" cdkFocusInitial>Ok</button> -->
-    <!-- <button mat-button mat-dialog-close>Decline</button> -->
-    <!--  <button mat-button (click)="onNoClick('decline')">Decline</button> -->
     <button  mat-raised-button color="warn" (click)="onNoClick('decline')">Decline</button>
     </div>
 </div>
 
-<!-- create multiple ngifs depending on dialog type -->
+<div *ngIf="data.type==='resign'" class="dialog-box">
+    <h1 mat-dialog-title>Attention !</h1>
+    <div mat-dialog-content>
+    <p>{{data.opponent}} has resgined</p>
+    </div>
+    <div mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button color="primary" (click)="onNoClick('view board')">view board</button>
+    <button  mat-raised-button color="warn" (click)="onNoClick('home')">home</button>
+    </div>
+</div>
+

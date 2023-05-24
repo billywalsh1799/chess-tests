@@ -85,6 +85,10 @@ io.on('connection', (socket) => {
         socket.to(room).emit('move made',move);
     })
 
+    socket.on('in game option',(option,room)=>{
+        socket.to(room).emit('in game option',option)
+    })
+
 
 
     // Handle disconnections

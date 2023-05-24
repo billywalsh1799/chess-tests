@@ -10,6 +10,15 @@
     
 }
 
+.in-game-options{
+	/* background-color: #5cb85c; */
+	height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;

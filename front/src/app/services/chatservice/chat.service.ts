@@ -67,5 +67,19 @@ export class ChatService {
     });
   }
 
+  inGameOption(option:{opponent:string,type:string},room:string):void{
+    this.socket.emit('in game option',option,room)
+
+  }
+
+  onInGameOption(): Observable<{opponent:string,type:string}>{
+    return new Observable<{opponent:string,type:string}>(observer => {
+      this.socket.on('in game option', (option) => {
+        observer.next(option);
+      });
+    });
+
+  }
+
 
 }
