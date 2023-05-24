@@ -58,7 +58,9 @@ export class GameComponent implements OnInit {
     }))
   }
 
-  
+  onInGameOption(event:any):void{
+    console.log(event)
+  }
 
   joinGame():void{
     if(this.player)

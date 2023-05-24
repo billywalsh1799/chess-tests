@@ -1,4 +1,4 @@
-import { Component,Input,OnInit} from '@angular/core';
+import { Component,Input,OnInit,Output, EventEmitter} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { ChatService } from 'src/app/services/chatservice/chat.service';
@@ -17,6 +17,8 @@ export class ChatComponent implements OnInit {
   @Input() receiver: string=""
   @Input() roomCode:string=""
 
+  @Output() inGameOption: EventEmitter<{opponent:string,type:string}>= new EventEmitter<{opponent:string,type:string}>
+
   messages:any =[]
 
   /* @Input() messages:any=[{text:"where are you going now billy fucking walsh vinny chase ari gold turtle johnny",time:"9:12pm"}] */
@@ -29,13 +31,20 @@ export class ChatComponent implements OnInit {
     })
 
     this.chatservice.onInGameOption().subscribe((option)=>{
-      
+      this.openDialog(option)
+      this.inGameOption.emit(option)
     })
 
   }
 
-  openDialog(option:string): void {
-    let dialogRef=this.dialog.open(DialogComponent,{data:{opponent:this.sender,type:option}})
+  sendOption(type:string):void{
+    let option={opponent:this.sender,type:type}
+    this.chatservice.inGameOption(option,this.roomCode)
+
+  }
+
+  openDialog(option:any): void {
+    let dialogRef=this.dialog.open(DialogComponent,{data:option})
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       alert(result)

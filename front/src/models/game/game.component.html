@@ -22,6 +22,6 @@
     <app-timer *ngIf="ready" [minutes]="time"></app-timer> 
     <div *ngIf="ready" class="game-ui">
         <board [room]="gameId" [side]="side"></board>
-        <app-chat  [sender]="player" [receiver]="opponent" [roomCode]="gameId"></app-chat>
+        <app-chat  [sender]="player" [receiver]="opponent" [roomCode]="gameId" (inGameOption)="onInGameOption($event)"></app-chat>
     </div>   
 </div>
