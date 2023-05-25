@@ -10,15 +10,6 @@
     
 }
 
-.in-game-options{
-	/* background-color: #5cb85c; */
-	height: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 10px;
-}
-
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -51,7 +42,7 @@ a {
 /* Chat Page */
 
 .chat-container {
-	max-width: 650px;
+	width: 630px;
 	height: 653px;
     /* height: 600px; */
 	background: #fff;
@@ -59,8 +50,8 @@ a {
 	margin: 30px auto;
 	overflow: hidden;
     position: relative;
-    top:-810px;
-    left: 480px;
+    /* top:-810px;
+    left: 480px; */
 }
 
 .chat-header {

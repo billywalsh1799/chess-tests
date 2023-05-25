@@ -1,11 +1,16 @@
 .game-ui{
-    /* background-color: rgb(105, 105, 105); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(105, 105, 105);
     height:850px;
-    width: 1700px;
-    overflow: hidden;
-    position: relative;
-    left:-40px;
-    top:30px;
+    /* width: 1700px; */
+    /* overflow: hidden;  */
+
+    margin-top: 20px;
+    
+    
     
     /* height: 800px;
     width: 800px; */
@@ -17,7 +22,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* overflow: hidden; */
+    background-color: #cc3333;
+    /* overflow: hidden;  */
+    
 
 }
 

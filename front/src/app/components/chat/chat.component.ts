@@ -1,6 +1,5 @@
 import { Component,Input,OnInit,Output, EventEmitter} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import * as moment from 'moment';
 import { ChatService } from 'src/app/services/chatservice/chat.service';
 import { DialogComponent } from '../dialog/dialog.component';
 
@@ -54,7 +53,8 @@ export class ChatComponent implements OnInit {
   
   sendMessage(msg:HTMLInputElement):void{
     if(msg.value){
-      let message={sender:this.sender,content:msg.value,time:moment().format('h:mm a')}
+      /* let message={sender:this.sender,content:msg.value,time:moment().format('h:mm a')} */
+      let message={sender:this.sender,content:msg.value,time:Date.now()}
       this.messages.push(message)
       msg.value=""
       this.chatservice.sendMessage(message,this.roomCode)

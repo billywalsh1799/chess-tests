@@ -2,9 +2,10 @@
     border-collapse: collapse;
     margin: 10px auto;
     position: relative;
-    left: -170px;
-    top: -30px;
-    /* background-color: #b58863; */
+   /*  left: -170px; */
+   /*  top: -20px; */
+    left: 70px; 
+   /*  background-color: #b58863;  */
     
     /* height:min-content;
     width:min-content; */
@@ -69,5 +70,35 @@
     font-size: 24px;
     font-weight: bold;
     
+  }
+
+  /* in game options */
+
+  .in-game-options{
+     /* background-color: #5cb85c;  */
+      height: 130px;
+      width: 115px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      position: relative;
+      top: -380px;
+      left:1265px ;
+      /* margin-top: 10px; */
+      /* position: relative;
+      top: 500px;
+      left: 1142px; */
+      
+  }
+
+  .btn {
+    cursor: pointer;
+    padding: 5px 15px;
+    background:#e6e9ff;
+    color:#667aff;
+    border: 0;
+    font-size: 17px;
+    width: 110px;
+    height: 30px;
   }
   

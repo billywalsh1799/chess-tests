@@ -8,7 +8,7 @@
     <main class="chat-main">
       <div class="chat-messages">
         <div class="message" *ngFor="let msg of messages">
-            <p class="meta">{{msg.sender}}<span> {{msg.time}}</span></p>
+            <p class="meta">{{msg.sender}}<span> {{msg.time | date:'shortTime'}}</span></p>
             <p class="text">
                 {{msg.content}}
             </p>
@@ -20,11 +20,11 @@
           <li>{{sender}}</li>
           <li>{{receiver}}</li>
         </ul>
-        <div class="in-game-options">
+        <!-- <div class="in-game-options">
           <button class="btn" (click)="sendOption('resign')">Resign</button>
           <button class="btn" (click)="sendOption('draw')">Offer Draw</button>
           <button class="btn" (click)="sendOption('take back')">Take Back</button>
-        </div>
+        </div> -->
         <!-- <button>take back</button> -->
       </div>
     </main>

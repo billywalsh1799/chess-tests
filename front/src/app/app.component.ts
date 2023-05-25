@@ -10,6 +10,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 export class AppComponent {
   title = 'Chess';
   selected = 'option2';
+  today: number = Date.now()
 
   constructor(private dialog: MatDialog) {}
   openDialog(): void {

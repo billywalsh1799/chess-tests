@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, observeOn } from 'rxjs';
+import { Observable,} from 'rxjs';
 import { io, Socket } from 'socket.io-client';
-import { Square } from 'src/models/square/Square';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,12 @@ export class ChatService {
     this.socket=io(this.url)
    }
 
-  sendMessage(message:{sender:string,content:string,time:string},room:string): void {
+  sendMessage(message:{sender:string,content:string,time:number},room:string): void {
   this.socket.emit('new message', message,room);
   }
 
-  getMessages(): Observable<{sender:string,content:string,time:string}> {
-    return new Observable<any>(observer => {
+  getMessages(): Observable<{sender:string,content:string,time:number}> {
+    return new Observable<{sender:string,content:string,time:number}>(observer => {
       this.socket.on('new message', (message) => {
         observer.next(message);
       });

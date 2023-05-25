@@ -1,13 +1,6 @@
-<div class="welcome">
-    <app-waiting *ngIf="isCreator && !ready" [gameId]="gameId" [player]="player"></app-waiting>
-
-    <!-- <div *ngIf="!isCreator && !ready">
-        <p>enter user</p>   
-        <input [(ngModel)]="player"/>
-        <button (click)="joinGame()">submit</button>
-    </div> -->
-
-    <div *ngIf="!isCreator && !ready" class="container">
+<!--  <div class="welcome">
+    <app-waiting *ngIf="isCreator && !ready" [gameId]="gameId" [player]="player"></app-waiting> 
+     <div *ngIf="!isCreator && !ready" class="container">
         <form class="form">
             <h1 class="form__title">Join Game</h1>
             <div class="form__message form__message--error">{{roomException}}</div>
@@ -18,10 +11,10 @@
             <button class="form__button" type="submit" (click)="joinGame()">Continue</button>
         </form>
     </div>
+</div> -->  
+<!-- <app-timer *ngIf="true" [minutes]="time"></app-timer>  -->
+<div *ngIf="true" class="game-ui">
+    <board [room]="gameId" [side]="side"></board>
+    <app-chat  [sender]="player" [receiver]="opponent" [roomCode]="gameId" (inGameOption)="onInGameOption($event)"></app-chat>
+</div> 
 
-    <app-timer *ngIf="ready" [minutes]="time"></app-timer> 
-    <div *ngIf="ready" class="game-ui">
-        <board [room]="gameId" [side]="side"></board>
-        <app-chat  [sender]="player" [receiver]="opponent" [roomCode]="gameId" (inGameOption)="onInGameOption($event)"></app-chat>
-    </div>   
-</div>

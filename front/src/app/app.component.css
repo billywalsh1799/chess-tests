@@ -1,92 +1,32 @@
-.prog{
-    /* background-color: darkgoldenrod; */
-    margin: 100px;
-    height: 200px;
-    width: 200px;
-    padding: 50px;
-}
 
-.app-progress-bar{
-    width: 500px;
-    height: 7px;
-    /* background-color: brown; */
-    /* height: 20px; */
-    margin: 50px;
-}
 
-.example-h2 {
-    margin: 10px;
-  }
-  
-  .example-section {
+.in-game-options{
+	/* background-color: #5cb85c;  */
+	height: 130px;
+  width: 200px;
     display: flex;
-    align-content: center;
-    align-items: center;
-    height: 20px;
-  }
-  
-  .example-margin {
-    margin: 0 10px;
-  }
-  
-  .example-card {
-    margin-bottom: 10px;
-    width:max-content;
-    height: 200px;
-    text-align: center;
-  }
-
-  .join-link{
-    border: solid;
-    padding: 5px;
-  }
-
-  .app-con{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-  }
-
-/* copy link css */
-
-.copy-link {
-  --height: 50px;
-
-  display: flex;
-  max-width: 400px;
+    gap: 15px;
+    margin-top: 10px;
+    position: relative;
+    top: 500px;
+    left: 1142px;
+    
 }
 
-.copy-link-input {
-  flex-grow: 1;
-  padding: 0 8px;
-  font-size: 14px;
-  border: 1px solid #cccccc;
-  border-right: none;
-  outline: none;
+.btn {
+	cursor: pointer;
+	padding: 5px 15px;
+	background:#e6e9ff;
+	color:#667aff;
+	border: 0;
+	font-size: 17px;
+  width: 110px;
+  height: 40px;
 }
 
-.copy-link-input:hover {
-  background: #eeeeee;
+.chat-test{
+  position: absolute;
+  top:1000px;
+  left:200px
 }
-
-.copy-link-button {
-  flex-shrink: 0;
-  width: var(--height);
-  height: var(--height);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #dddddd;
-  color: #333333;
-  outline: none;
-  border: 1px solid #cccccc;
-  cursor: pointer;
-}
-
-.copy-link-button:hover {
-  background: #cccccc;
-}
-
-  
-

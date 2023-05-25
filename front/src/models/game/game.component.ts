@@ -28,10 +28,10 @@ export class GameComponent implements OnInit {
  
   //angular material spinner waiting for other players
   constructor(private gameservice:GameService,private chatservice:ChatService,private route:ActivatedRoute){
-    if(gameservice.getUser()){
-      this.player=gameservice.getUser()
-      this.side=gameservice.getSide()
-      this.time=gameservice.getTime()
+    if(this.gameservice.getUser()){
+      this.player=this.gameservice.getUser()
+      this.side=this.gameservice.getSide()
+      this.time=this.gameservice.getTime()
       this.isCreator=true
     }
     this.gameId=this.route.snapshot.paramMap.get('gameId')
