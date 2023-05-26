@@ -17,11 +17,12 @@ export class BoardComponent implements OnInit {
   board: Square[][] = [];
   @Input() room:string=""
   @Input() side:string=""
+  @Input() time:number=0
 
   finished:string=""
 
   ngOnInit(): void {
-    this.boardservice.initGame(this.side)
+    this.boardservice.initGame(this.side) 
     this.chatservice.onMoveMade().subscribe((move)=>{
       console.log("move made",move)
       let gameFinished=this.boardservice.receiveMove(move)
@@ -30,6 +31,10 @@ export class BoardComponent implements OnInit {
         this.openDialog("white won")
       }
       
+    })
+
+    this.chatservice.onInGameOption().subscribe((option)=>{
+      this.openDialog(option)
     })
 
     /* this.boardservice.finished.subscribe((x)=>{
@@ -46,10 +51,21 @@ export class BoardComponent implements OnInit {
       
   }
 
-  openDialog(name:any): void {
-    let dialogRef=this.dialog.open(DialogComponent,{data:{name:name,age:10}})
+  openDialog(option:any): void {
+    let dialogRef=this.dialog.open(DialogComponent,{data:option})
+    dialogRef.afterClosed().subscribe(result => {
+      
+      alert(result) 
+      console.log(result,"result")
+    });
+  }
+
+  sendOption(type:string):void{
+    let option={opponent:this.side,type:type}
+    this.chatservice.inGameOption(option,this.room)
 
   }
+
 
   makeMove(i:number,j:number):void{
    
@@ -77,6 +93,8 @@ export class BoardComponent implements OnInit {
 
   constructor(private boardservice:BoardService,private chatservice:ChatService,private dialog:MatDialog) {
     this.board=this.boardservice.getBoard()
+    /* this.boardservice.initGame(this.side) */
+    console.log(this.side,"side")
   }
 
   

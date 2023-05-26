@@ -3,12 +3,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    background-color: rgb(105, 105, 105);
+    /* background-color: rgb(105, 105, 105); */
     height:850px;
     /* width: 1700px; */
-    /* overflow: hidden;  */
-
-    margin-top: 20px;
+    /* overflow: hidden;  
+ */
+    /* margin-top: 20px; */
     
     
     
@@ -22,7 +22,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #cc3333;
+    margin-top: 50px;
     /* overflow: hidden;  */
     
 

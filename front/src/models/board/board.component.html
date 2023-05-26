@@ -1,7 +1,10 @@
  
-<h1>side: {{side}}</h1>
-<h1 *ngIf="finished==='white won'">white won</h1>
-<table [ngClass]="{'board':true}">
+<!-- <h1>side: {{side}}</h1> -->
+<!-- <h1 *ngIf="finished==='white won'">white won</h1> -->
+<!-- <app-timer [minutes]="5"></app-timer> -->
+<div class="board-container">
+  <!-- <app-timer [minutes]="5"></app-timer> -->
+  <table class="board">
     <tr>
       <td class="empty-cell"></td>
       
@@ -32,10 +35,11 @@
     </tr>
     <!-- <button (click)="takeBack()">take back</button> -->
   </table>
-  <!-- <div class="in-game-options">
-    <button class="btn" >Resign</button>
-    <button class="btn" >Offer Draw</button>
-    <button class="btn" >Take Back</button>
-  </div>   -->
+ <div class="in-game-options">
+    <button class="btn" (click)="sendOption('resign')" >Resign</button>
+    <button class="btn" (click)="sendOption('draw')" >Offer Draw</button>
+    <button class="btn" (click)="sendOption('take back')">Take Back</button>
+  </div> 
+</div>
   
   

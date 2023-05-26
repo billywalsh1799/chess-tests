@@ -30,6 +30,8 @@ export class BoardService {
     this.PM =checkLegalMoves(this.board,this.whiteKingPosition,this.savedMoves)
     console.log('First PM',this.PM) */
     createBoard(this.board)
+    this.PM=checkLegalMoves(this.board,this.whiteKingPosition,this.savedMoves)
+
   }
 
  
@@ -40,8 +42,8 @@ export class BoardService {
 
   
   initGame(side:string):void{
-    if(side==="white")
-      this.PM =checkLegalMoves(this.board,this.whiteKingPosition,this.savedMoves)
+    if(side==="black")
+      this.PM =[]
     this.side=side
 
 

@@ -15,7 +15,7 @@ export class TimerComponent implements OnInit {
   
 
  ngOnInit(): void {
-   console.log("timer")
+   this.startCountdown()
  }
 
   startCountdown(): void {
